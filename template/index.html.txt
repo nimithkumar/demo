@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Task Manager</h1>
+<form action="/add" method="post">
+    <input type="text" name="title" placeholder="Enter task" required>
+    <button type="submit">Add</button>
+</form>
+
+<ul class="task-list">
+    {% for task in tasks %}
+        <li>{{ task.title }} <a href="/delete/{{ task.id }}">Delete</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
