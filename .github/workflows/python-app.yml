@@ -39,7 +39,7 @@ jobs:
     - name: Run pytest (skip if no tests)
       run: |
        if find . -name "test_*.py" | grep -q .; then
-         pytest
+          pytest --junitxml=reports/junit.xml
        else
          echo "No tests found — skipping pytest"
        fi
